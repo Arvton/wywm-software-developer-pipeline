@@ -8,10 +8,16 @@ def create_knight(knights):
 
     print("Let's create a knight!")
 
-    # Set the information up for the knight
+    # Sets up the knight's name
     knights_data.append(str(input("What is the knight's name? ")))
 
-    # Adds the information to the knight
+    # Adds the knight's equipment
+    print("Let's equip your knight!")
+    knights_data.append(str(input("What armour does the knight use? ")))
+    knights_data.append(str(input("What weapon does the knight use? ")))
+    knights_data.append(str(input("What is your knight's lucky charm? ")))
+
+    # Adds the knight's info
     knights.append(knights_data)
 
 # Call a knight and change their data
