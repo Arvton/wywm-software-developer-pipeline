@@ -43,8 +43,16 @@ def change_data(knights):
         print("--- Try again! ---")
         change_data(knights)
 
+# Call a knight and display their data
+def inspect_data(knights):
+
+    print("Knight " + knights[0] + " is equipped with:")
+    print("Armor: " + knights[1])
+    print("Weapon: " + knights[2])
+    print("Lucky Charm: " + knights[3] + "\n")
+
 # Show the current knights and select one
-def select_knight(knights):
+def select_knight_change(knights):
 
     # Reset the list to print all the knights
     knights_number = 0
@@ -56,6 +64,18 @@ def select_knight(knights):
     selection =(int(input("\nSelect the knight's number: ")) - 1)
     change_data(knights[selection])
 
+def select_knight_inspect(knights):
+
+    # Reset the list to print all the knights
+    knights_number = 0
+    print("Which Knight would you like to inspect?\n")
+    while knights_number < int(len(knights)):
+        print(str(knights_number + 1) + " Knight's name: " + str(knights[knights_number][0]))
+        knights_number += 1
+
+    selection =(int(input("\nSelect the knight's number: ")) - 1)
+    inspect_data(knights[selection])
+
 # This is the menu and we make our selections here
 def menu(knights_number):
 
@@ -63,6 +83,7 @@ def menu(knights_number):
     print("What do you want to do?")
     print("1: Create a new knight")
     print("2: Update your knight")
+    print("3: Inspect your knight")
     print("0: Exit")
 
     # Allow a selection to be tested
@@ -82,12 +103,20 @@ def menu(knights_number):
             knights_number += 1
             menu(knights_number)
 
-        elif select ==2:
+        elif select == 2:
             if int(len(knights)) == 0:
                 print("You need to create a knight first! \n")
             else:
-                select_knight(knights)
+                select_knight_change(knights)
             menu(knights_number)
+
+        elif select == 3:
+            if int(len(knights)) == 0:
+                print("You need to create a knight first! \n")
+            else:
+                select_knight_inspect(knights)
+            menu(knights_number)
+
         elif select == 0:
             print("--- All your Knights! ---\n")
 
