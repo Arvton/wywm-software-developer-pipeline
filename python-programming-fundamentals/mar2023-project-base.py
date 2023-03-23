@@ -25,7 +25,9 @@ def change_data(knights):
 
     print("--- What would you like to update? ---")
     print("1: Knight's name: " + knights[0])
-    #add different options here for the assignment
+    print("2: Knight's armour: " + knights[1])
+    print("3: Knight's weapon: " + knights[2])
+
     try:
 
         selection = int(input("Select your option: "))
@@ -35,6 +37,14 @@ def change_data(knights):
                     print("You have a knight!")
             knights[0] = str((input("What is their new name? ")))
             print("Your knight's new name is: " + knights[0])
+            return
+        elif selection == 2:
+            knights[1] = str((input("What is their new armour? ")))
+            print("Your knight's new armour is: " + knights[1])
+            return
+        elif selection == 3:
+            knights[2] = str((input("What is their new weapon? ")))
+            print("Your knight's new weapon is: " + knights[2])
             return
         else:
             print("--- Please select a valid option ---")
@@ -56,9 +66,9 @@ def select_knight_change(knights):
 
     # Reset the list to print all the knights
     knights_number = 0
-    print("What Knight would you like to update?\n")
+    print("Which Knight would you like to update?\n")
     while knights_number < int(len(knights)):
-        print(str(knights_number + 1) + " Knight's name: " + str(knights[knights_number][0]))
+        print(str(knights_number + 1) + "- Knight " + str(knights[knights_number][0]))
         knights_number += 1
 
     selection =(int(input("\nSelect the knight's number: ")) - 1)
@@ -70,7 +80,7 @@ def select_knight_inspect(knights):
     knights_number = 0
     print("Which Knight would you like to inspect?\n")
     while knights_number < int(len(knights)):
-        print(str(knights_number + 1) + " Knight's name: " + str(knights[knights_number][0]))
+        print(str(knights_number + 1) + "- Knight " + str(knights[knights_number][0]))
         knights_number += 1
 
     selection =(int(input("\nSelect the knight's number: ")) - 1)
@@ -91,7 +101,6 @@ def menu(knights_number):
 
         # Takes the user's selection option
         select = int(input("Selection number: "))
-        print() # Creates a blank line !!!!!!!!!!!!!!! Look for other ways for the assessment
 
         # Creates a new knight
         if select == 1:
